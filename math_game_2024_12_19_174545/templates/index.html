@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <!-- Topic Selection Card -->
+        <div class="card mb-4" id="topic-selection">
+            <div class="card-header text-center">
+                <h3 class="card-title mb-0">Choose a Math Topic</h3>
+            </div>
+            <div class="card-body">
+                <div class="list-group">
+                    <button class="list-group-item list-group-item-action" data-topic="integers">Positive and Negative Integers</button>
+                    <button class="list-group-item list-group-item-action" data-topic="operations">Order of Operations</button>
+                    <button class="list-group-item list-group-item-action" data-topic="fractions">Fractions</button>
+                    <button class="list-group-item list-group-item-action" data-topic="rounding">Rounding and Significant Figures</button>
+                    <button class="list-group-item list-group-item-action" data-topic="scientific">Scientific Notation</button>
+                    <button class="list-group-item list-group-item-action" data-topic="ratios">Ratios and Proportions</button>
+                    <button class="list-group-item list-group-item-action" data-topic="decimals">Decimals</button>
+                    <button class="list-group-item list-group-item-action" data-topic="percentages">Percentages</button>
+                    <button class="list-group-item list-group-item-action" data-topic="powers">Powers and Roots</button>
+                    <button class="list-group-item list-group-item-action" data-topic="expressions">Arithmetic Expressions</button>
+                    <button class="list-group-item list-group-item-action" data-topic="algebra">Algebra</button>
+                    <button class="list-group-item list-group-item-action" data-topic="geometry">Area and Volume</button>
+                    <button class="list-group-item list-group-item-action" data-topic="quadratic">Quadratic Formula</button>
+                    <button class="list-group-item list-group-item-action" data-topic="graphing">Graphing</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practice Area Card -->
+        <div class="card" id="practice-area" style="display: none;">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h2 class="card-title mb-0">Math Practice</h2>
+                <button class="btn btn-outline-secondary btn-sm" id="back-to-topics">← Back to Topics</button>
+            </div>
+            <div class="card-body">
+                <div id="topic-info" class="mb-4">
+                    <h3 id="current-topic">Integers</h3>
+                    <div id="score">Score: 0</div>
+                </div>
+
+                <div id="question-container" class="mb-4">
+                    <p id="question" class="h4"></p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="answer" class="form-label">Your Answer:</label>
+                    <input type="text" class="form-control" id="answer" placeholder="Enter your answer">
+                    <div id="answer-format-help" class="form-text" style="display: none;">
+                        Enter your answer as a fraction (e.g., 3/4) or a decimal number
+                    </div>
+                </div>
+
+                <button id="checkAnswer" class="btn btn-primary">Check Answer</button>
+
+                <div id="feedback" class="alert mt-3" style="display: none;"></div>
+
+                <div id="graphing-container" class="mt-4" style="display: none;">
+                    <canvas id="graphCanvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/graphing.js') }}"></script>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+{% endblock %}
