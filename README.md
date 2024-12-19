@@ -20,10 +20,13 @@ An interactive mathematics learning platform designed specifically for military 
 ## Installation
 
 1. Clone or download this repository
-2. Install the required packages:
+2. Install Dependencies
    ```bash
-   pip install -r requirements.txt
+   pip install flask
    ```
+   ```bash
+   pip install flask_sqlalchemy
+   ``` 
 3. Run the application:
    ```bash
    python main.py
